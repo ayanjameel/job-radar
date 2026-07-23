@@ -1,0 +1,77 @@
+# =========================================================
+# JOB TRACKER CONFIG
+# Edit this file any time to change what jobs you're hunting for.
+# No coding needed — just edit the lists below.
+# =========================================================
+
+candidate:
+  name: "Ayan Jameel"
+  location: "Uttar Pradesh, India"
+  experience_level: "entry_level"   # entry_level | mid | senior
+  remote_ok: true
+
+# Job titles to search for. Be broad — the matcher will rank relevance,
+# so it's fine to cast a wide net.
+target_titles:
+  - "Database Administrator"
+  - "Database Engineer"
+  - "Data Analyst"
+  - "Business Analyst"
+  - "Financial Analyst"
+  - "Financial Analytics"
+  - "Business Intelligence Analyst"
+  - "BI Analyst"
+  - "Operations Analyst"
+  - "Operations Associate"
+  - "Data Analytics"
+  - "SQL Developer"
+
+# Skills pulled from resume — used for scoring relevance of each job listing.
+# Add/remove any time.
+skills:
+  - Java
+  - SQL
+  - Python
+  - Power BI
+  - DAX
+  - Excel
+  - Data Visualization
+  - Dashboard
+  - KPI
+  - EDA
+  - LangChain
+  - RAG
+  - FAISS
+  - MySQL
+  - MongoDB
+  - ETL
+  - AWS
+  - Oracle Cloud
+  - OCI
+  - Agile
+  - Scrum
+  - Postman
+  - REST API
+  - Data Analytics
+  - Business Intelligence
+  - Financial Analysis
+  - Database Management
+
+# Locations to search in (city/country names as understood by Adzuna).
+# Use "remote" to include remote listings.
+locations:
+  - "India"
+  - "remote"
+
+# Specific companies you want tracked (optional).
+# These use Greenhouse/Lever job board slugs, NOT the company display name.
+# See README.md "Finding a company's Greenhouse/Lever slug" section for how to find these.
+target_companies:
+  greenhouse: []   # e.g. ["stripe", "airbnb"]
+  lever: []        # e.g. ["netflix"]
+
+# How many days back to consider a listing "new"
+freshness_days: 2
+
+# Minimum match score (0-100) for a job to appear on your dashboard
+min_match_score: 25
