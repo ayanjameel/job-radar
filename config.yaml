@@ -78,7 +78,8 @@ target_companies:
 
 # How many days back to consider a listing "new"
 keep_days: 14
-min_match_score: 15
+
 
 # Minimum match score (0-100) for a job to appear on your dashboard
+min_match_score: 15
 
