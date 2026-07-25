@@ -96,6 +96,15 @@
   }
   .apply-btn:hover { opacity: 0.88; }
   .empty { color: var(--muted); text-align: center; margin-top: 60px; }
+  .warning {
+    background: rgba(230,168,79,0.1);
+    border: 1px solid rgba(230,168,79,0.35);
+    color: #e6a84f;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }
   footer {
     text-align: center;
     color: var(--muted);
@@ -109,57 +118,12 @@
     <header>
       <div class="eyebrow">Job Radar</div>
       <h1>Today's matches</h1>
-      <p class="sub">Last refreshed: 2026-07-24 06:44 UTC &middot; 3 new match(es)</p>
+      <p class="sub">Last refreshed: 2026-07-25 05:40 UTC &middot; 0 active match(es)</p>
     </header>
-    
-    <article class="card">
-      <div class="card-top">
-        <div>
-          <h2 class="title">Senior Data Analyst</h2>
-          <p class="company">AB InBev &middot; Remote</p>
-        </div>
-        <div class="score" title="Match score">98</div>
-      </div>
-      <div class="meta">
-        <span class="source-tag">RemoteOK</span>
-        <span class="posted">Posted: 2026-07-21</span>
-      </div>
-      <div class="pills"><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">Power BI</span><span class="pill">Dashboard</span><span class="pill">KPI</span><span class="pill">RAG</span><span class="pill">Data Analytics</span><span class="pill">Business Intelligence</span></div>
-      <a class="apply-btn" href="https://remoteOK.com/remote-jobs/remote-senior-data-analyst-ab-inbev-1135150" target="_blank" rel="noopener">Apply →</a>
-    </article>
-    
-    <article class="card">
-      <div class="card-top">
-        <div>
-          <h2 class="title">Working Student SEO Data Analyst​ (m|w|d)</h2>
-          <p class="company">idealo internet GmbH &middot; Berlin</p>
-        </div>
-        <div class="score" title="Match score">74</div>
-      </div>
-      <div class="meta">
-        <span class="source-tag">Arbeitnow</span>
-        <span class="posted">Posted: —</span>
-      </div>
-      <div class="pills"><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">Excel</span><span class="pill">RAG</span></div>
-      <a class="apply-btn" href="https://www.arbeitnow.com/jobs/companies/idealo-internet-gmbh/working-student-seo-data-analyst-mwd-berlin-39329" target="_blank" rel="noopener">Apply →</a>
-    </article>
-    
-    <article class="card">
-      <div class="card-top">
-        <div>
-          <h2 class="title">Data Analyst Assistant</h2>
-          <p class="company">Blue Oak Consulting &middot; Remote</p>
-        </div>
-        <div class="score" title="Match score">62</div>
-      </div>
-      <div class="meta">
-        <span class="source-tag">RemoteOK</span>
-        <span class="posted">Posted: 2026-07-21</span>
-      </div>
-      <div class="pills"><span class="pill">Excel</span><span class="pill">Financial Analysis</span></div>
-      <a class="apply-btn" href="https://remoteOK.com/remote-jobs/remote-data-analyst-assistant-blue-oak-consulting-1135326" target="_blank" rel="noopener">Apply →</a>
-    </article>
-    
+    <div class="warning">⚠️ Legitimate jobs never require payment to apply. If an
+    "Apply" link asks you to pay, buy a course, or subscribe before showing you
+    the job, close it — it's not a real employer application.</div>
+    <p class="empty">No new matching jobs today. Check back tomorrow — the list refreshes daily.</p>
     <footer>Refreshes automatically once a day via GitHub Actions.</footer>
   </div>
 </body>
