@@ -6,9 +6,22 @@ matched jobs, ranked by relevance. This file is what GitHub Pages serves.
 
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 OUTPUT_PATH = os.path.join("docs", "index.html")
+
+
+def _days_ago(first_seen):
+    try:
+        d = date.fromisoformat(first_seen)
+        delta = (datetime.now(timezone.utc).date() - d).days
+        if delta <= 0:
+            return "found today"
+        if delta == 1:
+            return "found yesterday"
+        return f"found {delta} days ago"
+    except Exception:
+        return ""
 
 
 def build_card(job):
@@ -17,6 +30,7 @@ def build_card(job):
     )
     score = job.get("match_score", 0)
     posted = job.get("posted_date") or "—"
+    found_label = _days_ago(job.get("first_seen", ""))
     return f"""
     <article class="card">
       <div class="card-top">
@@ -29,6 +43,7 @@ def build_card(job):
       <div class="meta">
         <span class="source-tag">{job.get('source', '')}</span>
         <span class="posted">Posted: {posted}</span>
+        <span class="posted">{found_label}</span>
       </div>
       <div class="pills">{skills_html}</div>
       <a class="apply-btn" href="{job.get('url', '#')}" target="_blank" rel="noopener">Apply →</a>
@@ -142,6 +157,15 @@ def generate(matched_jobs):
   }}
   .apply-btn:hover {{ opacity: 0.88; }}
   .empty {{ color: var(--muted); text-align: center; margin-top: 60px; }}
+  .warning {{
+    background: rgba(230,168,79,0.1);
+    border: 1px solid rgba(230,168,79,0.35);
+    color: #e6a84f;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+  }}
   footer {{
     text-align: center;
     color: var(--muted);
@@ -155,8 +179,11 @@ def generate(matched_jobs):
     <header>
       <div class="eyebrow">Job Radar</div>
       <h1>Today's matches</h1>
-      <p class="sub">Last refreshed: {generated_at} &middot; {len(matched_jobs)} new match(es)</p>
+      <p class="sub">Last refreshed: {generated_at} &middot; {len(matched_jobs)} active match(es)</p>
     </header>
+    <div class="warning">⚠️ Legitimate jobs never require payment to apply. If an
+    "Apply" link asks you to pay, buy a course, or subscribe before showing you
+    the job, close it — it's not a real employer application.</div>
     {cards_html}
     <footer>Refreshes automatically once a day via GitHub Actions.</footer>
   </div>
